@@ -173,6 +173,18 @@
             background-color: var(--navy);
         }
 
+        .subsection {
+            margin-bottom: 40px;
+        }
+
+        .subsection-title {
+            font-size: 20px;
+            color: var(--navy);
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 3px solid var(--navy);
+        }
+
         .card {
             background-color: var(--navy);
             border-radius: 8px;
@@ -445,33 +457,31 @@
     <section id="selfstudy">
         <div class="container">
             <h2 class="section-title">📚 Self Study</h2>
-            <div class="card clickable" onclick="openModal('study1')">
-                <div class="card-content">
-                    <h3 class="card-title">🧠 HDC - Hyperdimensional Computing Fundamentals</h3>
-                    <div class="card-date">2024 - Present</div>
-                    <p class="card-description">Deep dive into hyperdimensional computing principles, vector-symbolic architectures, and their applications in cognitive computing.</p>
+            
+            <div class="subsection">
+                <h3 class="subsection-title">🧠 HDC - Hyperdimensional Computing</h3>
+                <!-- HDC study items will go here -->
+            </div>
+            
+            <div class="subsection">
+                <h3 class="subsection-title">💾 IMC - In-Memory Computing</h3>
+                <!-- IMC study items will go here -->
+            </div>
+            
+            <div class="subsection">
+                <h3 class="subsection-title">⚡ Efficient ML</h3>
+                <div class="card clickable" onclick="openModal('study1')">
+                    <div class="card-content">
+                        <h3 class="card-title">Neural Network Quantization Techniques</h3>
+                        <div class="card-date">2023 - Present</div>
+                        <p class="card-description">Study of quantization-aware training, post-training quantization, and their impact on model accuracy and efficiency.</p>
+                    </div>
                 </div>
             </div>
-            <div class="card clickable" onclick="openModal('study2')">
-                <div class="card-content">
-                    <h3 class="card-title">💾 IMC - In-Memory Computing Architectures</h3>
-                    <div class="card-date">2024 - Present</div>
-                    <p class="card-description">Study of emerging in-memory computing paradigms, memristor technologies, and their integration with machine learning algorithms.</p>
-                </div>
-            </div>
-            <div class="card clickable" onclick="openModal('study3')">
-                <div class="card-content">
-                    <h3 class="card-title">⚡ Efficient ML - Resource-Constrained Machine Learning</h3>
-                    <div class="card-date">2023 - Present</div>
-                    <p class="card-description">Exploration of quantization techniques, pruning methods, and energy-efficient neural network designs for edge computing.</p>
-                </div>
-            </div>
-            <div class="card clickable" onclick="openModal('study4')">
-                <div class="card-content">
-                    <h3 class="card-title">🤖 LLM - Large Language Models and Transformers</h3>
-                    <div class="card-date">2023 - Present</div>
-                    <p class="card-description">Understanding transformer architectures, attention mechanisms, and optimization strategies for large-scale language models.</p>
-                </div>
+            
+            <div class="subsection">
+                <h3 class="subsection-title">🤖 LLM - Large Language Models</h3>
+                <!-- LLM study items will go here -->
             </div>
         </div>
     </section>
@@ -597,117 +607,26 @@
         <div class="modal-content">
             <button class="close-button" onclick="closeModal('study1')">×</button>
             <div class="modal-header">
-                <h2 class="modal-title">HDC - Hyperdimensional Computing Fundamentals</h2>
-                <div class="modal-subtitle">2024 - Present</div>
-            </div>
-            <div class="modal-body">
-                <h3>Study Overview</h3>
-                <p>Comprehensive study of hyperdimensional computing (HDC) principles and their applications in cognitive computing systems.</p>
-                
-                <h3>Key Topics</h3>
-                <ul>
-                    <li>Vector-symbolic architectures and high-dimensional representations</li>
-                    <li>Binding and bundling operations in hyperdimensional spaces</li>
-                    <li>HDC applications in pattern recognition and classification</li>
-                    <li>Hardware implementations and efficiency considerations</li>
-                </ul>
-                
-                <h3>Resources</h3>
-                <ul>
-                    <li>Research papers on HDC algorithms and architectures</li>
-                    <li>Implementation of HDC models for various datasets</li>
-                    <li>Analysis of HDC performance on edge computing platforms</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div id="study2Modal" class="modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="closeModal('study2')">×</button>
-            <div class="modal-header">
-                <h2 class="modal-title">IMC - In-Memory Computing Architectures</h2>
-                <div class="modal-subtitle">2024 - Present</div>
-            </div>
-            <div class="modal-body">
-                <h3>Study Overview</h3>
-                <p>Exploration of in-memory computing paradigms and their potential to revolutionize machine learning acceleration.</p>
-                
-                <h3>Key Topics</h3>
-                <ul>
-                    <li>Memristor technologies and crossbar architectures</li>
-                    <li>Analog computing in memory arrays</li>
-                    <li>Mapping neural networks to IMC hardware</li>
-                    <li>Challenges in precision and variability management</li>
-                </ul>
-                
-                <h3>Focus Areas</h3>
-                <ul>
-                    <li>RRAM and PCM device characteristics</li>
-                    <li>IMC array utilization optimization</li>
-                    <li>Energy efficiency analysis</li>
-                    <li>Hardware-software co-design approaches</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div id="study3Modal" class="modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="closeModal('study3')">×</button>
-            <div class="modal-header">
-                <h2 class="modal-title">Efficient ML - Resource-Constrained Machine Learning</h2>
+                <h2 class="modal-title">Neural Network Quantization Techniques</h2>
                 <div class="modal-subtitle">2023 - Present</div>
             </div>
             <div class="modal-body">
                 <h3>Study Overview</h3>
-                <p>Investigation of techniques to optimize machine learning models for deployment in resource-constrained environments.</p>
+                <p>Comprehensive study of quantization techniques for neural networks, focusing on maintaining accuracy while reducing computational and memory requirements.</p>
                 
                 <h3>Key Topics</h3>
                 <ul>
-                    <li>Quantization-aware training and post-training quantization</li>
-                    <li>Neural network pruning and sparsity</li>
-                    <li>Knowledge distillation techniques</li>
-                    <li>Mobile and edge AI optimization</li>
+                    <li>Quantization-aware training (QAT) methodologies</li>
+                    <li>Post-training quantization (PTQ) strategies</li>
+                    <li>Mixed-precision quantization approaches</li>
+                    <li>Hardware-specific quantization optimizations</li>
                 </ul>
                 
-                <h3>Practical Applications</h3>
-                <ul>
-                    <li>Implementation of efficient CNN architectures</li>
-                    <li>Energy consumption analysis</li>
-                    <li>Accuracy-efficiency trade-off studies</li>
-                    <li>Hardware-aware model design</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div id="study4Modal" class="modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="closeModal('study4')">×</button>
-            <div class="modal-header">
-                <h2 class="modal-title">LLM - Large Language Models and Transformers</h2>
-                <div class="modal-subtitle">2023 - Present</div>
-            </div>
-            <div class="modal-body">
-                <h3>Study Overview</h3>
-                <p>Deep understanding of transformer architectures and their applications in natural language processing and beyond.</p>
-                
-                <h3>Key Topics</h3>
-                <ul>
-                    <li>Attention mechanisms and self-attention</li>
-                    <li>Transformer architecture variations (BERT, GPT, T5)</li>
-                    <li>Scaling laws and emergence in large models</li>
-                    <li>Fine-tuning and adaptation strategies</li>
-                </ul>
-                
-                <h3>Research Interests</h3>
-                <ul>
-                    <li>Efficient transformer implementations</li>
-                    <li>Memory and computation optimization</li>
-                    <li>Multi-modal transformer applications</li>
-                    <li>Hardware acceleration for transformers</li>
-                </ul>
+                <h3>Study Materials</h3>
+                <p>
+                    <a href="#" target="_blank">Study Notes (PDF)</a> | 
+                    <a href="#" target="_blank">Implementation Code</a>
+                </p>
             </div>
         </div>
     </div>
