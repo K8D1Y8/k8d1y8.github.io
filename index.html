@@ -173,6 +173,42 @@
             background-color: var(--navy);
         }
 
+        /* PDF Viewer styles */
+        .pdf-viewer {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .pdf-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .pdf-controls button {
+            background-color: var(--navy);
+            color: var(--white);
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .pdf-controls button:hover {
+            background-color: var(--light-navy);
+        }
+
+        .pdf-controls button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
         .subsection {
             margin-bottom: 40px;
         }
@@ -478,11 +514,6 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="subsection">
-                <h3 class="subsection-title">🤖 LLM - Large Language Models</h3>
-                <!-- LLM study items will go here -->
-            </div>
         </div>
     </section>
 
@@ -623,9 +654,19 @@
                 </ul>
                 
                 <h3>Study Materials</h3>
+                <div class="pdf-controls">
+                    <button onclick="showPDF('study1')" id="showPdfBtn1">View PDF</button>
+                    <button onclick="hidePDF('study1')" id="hidePdfBtn1" style="display: none;">Hide PDF</button>
+                    <span id="pdfStatus1">Click "View PDF" to load the document</span>
+                </div>
+                <div id="pdfContainer1" style="display: none;">
+                    <iframe id="pdfViewer1" class="pdf-viewer" src="" type="application/pdf"></iframe>
+                </div>
+                
+                <h3>Additional Resources</h3>
                 <p>
-                    <a href="#" target="_blank">Study Notes (PDF)</a> | 
-                    <a href="#" target="_blank">Implementation Code</a>
+                    <a href="#" target="_blank">Implementation Code</a> | 
+                    <a href="#" target="_blank">Research Papers</a>
                 </p>
             </div>
         </div>
@@ -659,6 +700,38 @@
                 });
             });
         });
+
+        // PDF viewer functions
+        function showPDF(studyId) {
+            const container = document.getElementById(`pdfContainer${studyId.slice(-1)}`);
+            const viewer = document.getElementById(`pdfViewer${studyId.slice(-1)}`);
+            const showBtn = document.getElementById(`showPdfBtn${studyId.slice(-1)}`);
+            const hideBtn = document.getElementById(`hidePdfBtn${studyId.slice(-1)}`);
+            const status = document.getElementById(`pdfStatus${studyId.slice(-1)}`);
+            
+            // Replace with actual PDF file path
+            const pdfPath = "path/to/your/quantization-notes.pdf"; // Update this with actual PDF path
+            
+            viewer.src = pdfPath;
+            container.style.display = 'block';
+            showBtn.style.display = 'none';
+            hideBtn.style.display = 'inline-block';
+            status.textContent = 'PDF loaded successfully';
+        }
+
+        function hidePDF(studyId) {
+            const container = document.getElementById(`pdfContainer${studyId.slice(-1)}`);
+            const viewer = document.getElementById(`pdfViewer${studyId.slice(-1)}`);
+            const showBtn = document.getElementById(`showPdfBtn${studyId.slice(-1)}`);
+            const hideBtn = document.getElementById(`hidePdfBtn${studyId.slice(-1)}`);
+            const status = document.getElementById(`pdfStatus${studyId.slice(-1)}`);
+            
+            viewer.src = "";
+            container.style.display = 'none';
+            showBtn.style.display = 'inline-block';
+            hideBtn.style.display = 'none';
+            status.textContent = 'Click "View PDF" to load the document';
+        }
 
         // Close modal when clicking outside
         window.onclick = function(event) {
