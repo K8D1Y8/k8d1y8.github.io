@@ -173,54 +173,6 @@
             background-color: var(--navy);
         }
 
-        /* PDF Viewer styles */
-        .pdf-viewer {
-            width: 100%;
-            height: 600px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-
-        .pdf-controls {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            align-items: center;
-        }
-
-        .pdf-controls button {
-            background-color: var(--navy);
-            color: var(--white);
-            border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .pdf-controls button:hover {
-            background-color: var(--light-navy);
-        }
-
-        .pdf-controls button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
-
-        .subsection {
-            margin-bottom: 40px;
-        }
-
-        .subsection-title {
-            font-size: 20px;
-            color: var(--navy);
-            margin-bottom: 15px;
-            padding-left: 10px;
-            border-left: 3px solid var(--navy);
-        }
-
         .card {
             background-color: var(--navy);
             border-radius: 8px;
@@ -431,7 +383,6 @@
                 <li><a href="#education">Education</a></li>
                 <li><a href="#publication">Publication</a></li>
                 <li><a href="#project">Project</a></li>
-                <li><a href="#selfstudy">Self Study</a></li>
                 <li><a href="#activities">Other Activities</a></li>
             </ul>
         </div>
@@ -473,13 +424,6 @@
     <section id="project">
         <div class="container">
             <h2 class="section-title">🎯 Project</h2>
-            <div class="card clickable" onclick="openModal('proj2')">
-                <div class="card-content">
-                    <h3 class="card-title">Cross-disciplinary Research Award (2nd place)</h3>
-                    <div class="card-date">Mar. 2024 - Jun. 2024</div>
-                    <p class="card-description">Research on optimization of Once-for-All-Network Training, collaborating with students from Mathematics, Electronics and Electrical Engineering, and Mechanical Engineering.</p>
-                </div>
-            </div>
             <div class="card clickable" onclick="openModal('proj1')">
                 <div class="card-content">
                     <h3 class="card-title">1st SKKU Autonomous Driving SW Competition (3rd place)</h3>
@@ -487,31 +431,11 @@
                     <p class="card-description">Autonomous driving software competition using electric cars with sensors to complete three challenging missions.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="selfstudy">
-        <div class="container">
-            <h2 class="section-title">📚 Self Study</h2>
-            
-            <div class="subsection">
-                <h3 class="subsection-title">🧠 HDC - Hyperdimensional Computing</h3>
-                <!-- HDC study items will go here -->
-            </div>
-            
-            <div class="subsection">
-                <h3 class="subsection-title">💾 IMC - In-Memory Computing</h3>
-                <!-- IMC study items will go here -->
-            </div>
-            
-            <div class="subsection">
-                <h3 class="subsection-title">⚡ Efficient ML</h3>
-                <div class="card clickable" onclick="openModal('study1')">
-                    <div class="card-content">
-                        <h3 class="card-title"></h3>
-                        <div class="card-date"></div>
-                        <p class="card-description"></p>
-                    </div>
+            <div class="card clickable" onclick="openModal('proj2')">
+                <div class="card-content">
+                    <h3 class="card-title">Cross-disciplinary Research Award (2nd place)</h3>
+                    <div class="card-date">Mar. 2024 - Jun. 2024</div>
+                    <p class="card-description">Research on optimization of Once-for-All-Network Training, collaborating with students from Mathematics, Electronics and Electrical Engineering, and Mechanical Engineering.</p>
                 </div>
             </div>
         </div>
@@ -634,41 +558,6 @@
         </div>
     </div>
 
-    <div id="study1Modal" class="modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="closeModal('study1')">×</button>
-            <div class="modal-header">
-                <h2 class="modal-title">Neural Network Quantization Techniques</h2>
-                <div class="modal-subtitle">2023 - Present</div>
-            </div>
-            <div class="modal-body">
-                <h3>Study Overview</h3>
-                <p></p>
-                
-                <h3>Key Topics</h3>
-                <ul>
-                    <li>Post-training quantization (PTQ) strategies</li>
-                </ul>
-                
-                <h3>Study Materials</h3>
-                <div class="pdf-controls">
-                    <button onclick="showPDF('study1')" id="showPdfBtn1">View PDF</button>
-                    <button onclick="hidePDF('study1')" id="hidePdfBtn1" style="display: none;">Hide PDF</button>
-                    <span id="pdfStatus1">Click "View PDF" to load the document</span>
-                </div>
-                <div id="pdfContainer1" style="display: none;">
-                    <iframe id="pdfViewer1" class="pdf-viewer" src="" type="application/pdf"></iframe>
-                </div>
-                
-                <h3>Additional Resources</h3>
-                <p>
-                    <a href="#" target="_blank">Implementation Code</a> | 
-                    <a href="#" target="_blank">Research Papers</a>
-                </p>
-            </div>
-        </div>
-    </div>
-
     <footer>
         <div class="container">
             <p class="copyright">© 2025 Do Yeong Kang. All rights reserved.</p>
@@ -697,38 +586,6 @@
                 });
             });
         });
-
-        // PDF viewer functions
-        function showPDF(studyId) {
-            const container = document.getElementById(`pdfContainer${studyId.slice(-1)}`);
-            const viewer = document.getElementById(`pdfViewer${studyId.slice(-1)}`);
-            const showBtn = document.getElementById(`showPdfBtn${studyId.slice(-1)}`);
-            const hideBtn = document.getElementById(`hidePdfBtn${studyId.slice(-1)}`);
-            const status = document.getElementById(`pdfStatus${studyId.slice(-1)}`);
-            
-            // Replace with actual PDF file path
-            const pdfPath = "path/to/your/quantization-notes.pdf"; // Update this with actual PDF path
-            
-            viewer.src = pdfPath;
-            container.style.display = 'block';
-            showBtn.style.display = 'none';
-            hideBtn.style.display = 'inline-block';
-            status.textContent = 'PDF loaded successfully';
-        }
-
-        function hidePDF(studyId) {
-            const container = document.getElementById(`pdfContainer${studyId.slice(-1)}`);
-            const viewer = document.getElementById(`pdfViewer${studyId.slice(-1)}`);
-            const showBtn = document.getElementById(`showPdfBtn${studyId.slice(-1)}`);
-            const hideBtn = document.getElementById(`hidePdfBtn${studyId.slice(-1)}`);
-            const status = document.getElementById(`pdfStatus${studyId.slice(-1)}`);
-            
-            viewer.src = "";
-            container.style.display = 'none';
-            showBtn.style.display = 'inline-block';
-            hideBtn.style.display = 'none';
-            status.textContent = 'Click "View PDF" to load the document';
-        }
 
         // Close modal when clicking outside
         window.onclick = function(event) {
