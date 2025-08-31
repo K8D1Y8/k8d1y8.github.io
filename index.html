@@ -396,6 +396,13 @@
     <section id="publication">
         <div class="container">
             <h2 class="section-title">📄 Publication</h2>
+            <div class="card clickable" onclick="openModal('pub2')">
+                <div class="card-content">
+                    <h3 class="card-title">Multi-Centroid Hyperdimensional Computing for Compact IMC Arrays via Dimension Pruning</h3>
+                    <div class="card-date">Under Review</div>
+                    <p class="card-description">DiP-MEMHD framework for dimension pruning in hyperdimensional computing to achieve full utilization of compact IMC arrays.</p>
+                </div>
+            </div>
             <div class="card clickable" onclick="openModal('pub1')">
                 <div class="card-content">
                     <h3 class="card-title">MEMHD: Memory-Efficient Multi-Centroid Hyperdimensional Computing for Fully-Utilized In-Memory Computing Architectures</h3>
@@ -454,7 +461,31 @@
         </div>
     </section>
 
-    <!-- Modal windows for details -->
+    <div id="pub2Modal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal('pub2')">×</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Multi-Centroid Hyperdimensional Computing for Compact IMC Arrays via Dimension Pruning</h2>
+                <div class="modal-subtitle">Under Review</div>
+            </div>
+            <div class="modal-body">
+                <h3>Authors</h3>
+                <p>Do Yeong Kang, Yeong Hwan Oh, Chanwook Hwang, Jinhee Kim, Kang Eun Jeon*, Jong Hwan Ko*</p>
+                
+                <h3>Abstract</h3>
+                <p>The implementation of Hyperdimensional Computing (HDC) on In-Memory Computing (IMC) architectures faces fundamental challenges due to dimensional mismatches between high-dimensional vectors and IMC array constraints. Traditional HDC approaches utilize vectors that exceed IMC array dimensions, causing computational resource underutilization and leaving most columns unused during similarity calculations. Existing partitioning methods fail to reduce computation cycles, with challenges intensified for compact IMC arrays (64×64 and 128×128). This paper presents MEMHD, a Memory-Efficient Multi-centroid HDC framework that replaces traditional single-vector-per-class with multiple class vectors to achieve full IMC array utilization and enable single-cycle inference through clustering-based initialization and quantization-aware training. To address compact IMC array deployment, we also propose DiP-MEMHD, Dimension Pruned MEMHD, which prunes dimensions while preserving critical information through calibration and variance-based weighting. As a result, MEMHD achieves 13.25× better memory efficiency at comparable accuracy and 13.69% higher accuracy with same memory usage compared to existing binary HDC baselines. DiP-MEMHD introduces multi-centroid optimized pruning metric, showing 2.09% higher accuracy than existing pruning metrics and achieving 22.4% higher accuracy than state-of-the-art binary HDC models on compact IMC arrays with 6-8× better energy efficiency.</p>
+                
+                <h3>Keywords</h3>
+                <p>Hyperdimensional Computing, In-Memory Computing, Multi-Centroid Associative Memory, Dimension Pruning</p>
+                
+                <h3>Links</h3>
+                <p>
+                    Paper will be available upon publication
+                </p>
+            </div>
+        </div>
+    </div>
+
     <div id="pub1Modal" class="modal">
         <div class="modal-content">
             <button class="close-button" onclick="closeModal('pub1')">×</button>
