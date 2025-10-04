@@ -11,6 +11,7 @@
             --lightest-navy: #4a5e70;
             --edu-navy: #34495e; /* Lighter color for education box */
             --activity-blue: #2c5282;  /* Different blue for Other Activities */
+            --activity-blue-light: #4d74a8;
             --white: #ffffff;
             --black: #000000;
         }
@@ -181,9 +182,12 @@
             margin-bottom: 15px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        #education .card, #activities .card, #teaching .card, #awards .card {
-            background-color: var(--activity-blue);
+        
+        #education .card, #teaching .card, #awards .card {
+        background-color: var(--activity-blue);
+        }
+        #activities .card {
+        background-color: var(--activity-blue-light); /* Other Activities만 밝게 */
         }
 
         .card-content {
