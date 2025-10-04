@@ -392,7 +392,7 @@
                 <div class="card-content">
                     <h3 class="card-title">MoRE: Mixture of Remapping Experts for Irreversible Feature-Level Unlearning</h3>
                     <div class="card-date">(Under Review)</div>
-                    <p class="card-description">A novel framework for efficient machine unlearning using Mixture of Experts.</p>
+                    <p class="card-description">A novel framework for exact, irreversible, and scalable feature-level machine unlearning.</p>
                 </div>
             </div>
             <div class="card clickable" onclick="openModal('pub2')">
@@ -503,9 +503,9 @@
             </div>
             <div class="modal-body">
                 <h3>Authors</h3>
-                <p>K. E. Jeon, Y. S. Kang, <strong>D. Y. Kang</strong>, T. Y. Lee, G. M. Park, and J. H. Ko*</p>
+                <p>K. E. Jeon, Y. S. Kang, <strong>D. Y. Kang</strong>, T. Y. Lee, G. M. Park*, and J. H. Ko*</p>
                 <h3>Abstract</h3>
-                <p>Details will be available upon publication.</p>
+                <p>Machine unlearning (MU) has emerged as a critical paradigm for enabling models to erase unwanted knowledge, not only at the instance level but also across entire concepts or classes, thereby addressing broader concerns of privacy, safety, and robustness. However, existing approaches face three persistent challenges: (1) they often degrade utility on the remain data, (2) they leave residual feature-level knowledge that makes unlearning reversible, and (3) they incur prohibitive computational or memory costs, limiting scalability. Recent works have partially addressed these issues through adversarial regularization or subspace erasure, yet both fall short of providing irreversible and scalable feature-level unlearning. We propose MoRE: Mixture of Remapping Experts, a novel framework for exact feature-level unlearning. MoRE introduces three innovations: (i) prototype-orthogonal projection to preserve remain utility by decorrelating forget and remain prototypes prior to erasure, (ii) remapping with mixture experts to merge forget prototypes into multiple remain prototypes, eliminating their separability and impeding recovery via fine-tuning, and (iii) efficient activation-mean prototypes that reduce unlearning to a single forward pass, achieving linear computational complexity and constant memory. Extensive experiments demonstrate that MoRE preserves utility, ensures irreversibility at the feature level, and scales effectively to large models and datasets, thereby establishing a principled pathway toward trustworthy and scalable machine unlearning.</p>
             </div>
         </div>
     </div>
@@ -651,5 +651,4 @@
     </script>
 </body>
 </html>
-
 
