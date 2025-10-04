@@ -52,10 +52,11 @@
             display: flex;
             justify-content: center;
             list-style: none;
+            flex-wrap: wrap;
         }
 
         .navbar ul li {
-            margin: 0 20px;
+            margin: 5px 15px;
         }
 
         .navbar ul li a {
@@ -181,13 +182,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Special color for Education card */
-        #education .card {
-            background-color: var(--activity-blue);
-        }
-
-        /* Special color for Other Activities cards */
-        #activities .card {
+        #education .card, #activities .card, #teaching .card, #awards .card {
             background-color: var(--activity-blue);
         }
 
@@ -337,22 +332,21 @@
         <div class="container">
             <div class="profile">
                 <div class="profile-image">
-                    <img src="images/profile_img.jpeg" alt="Profile Photo">
+                    <img src="https://raw.githubusercontent.com/dy-kang/dy-kang.github.io/main/images/profile_img.jpeg" alt="Profile Photo" onerror="this.onerror=null; this.src='https://placehold.co/120x120/2c3e50/ffffff?text=DK';">
                 </div>
                 <div class="profile-info">
                     <h1>Do Yeong Kang</h1>
-                    <p>Hello👋 I'm an M.S. student in Electrical and Computer Engineering at Sungkyunkwan University (SKKU), advised by Prof. Jong Hwan Ko in the <a href="https://iris.skku.edu/" target="_blank" style="color: inherit; text-decoration: underline;">IRIS Lab</a>. My research interests include <strong>In-memory Computing (IMC)</strong>, <strong>Hyperdimensional Computing (HDC)</strong>, <strong>Vector-symbolic Architectures (VSA)</strong>, and <strong>energy constrained machine learning</strong>. 
-                        I'm also passionate about mathematics and education!</p>
+                    <p>Hello👋 I'm an M.S. student in Electrical and Computer Engineering at Sungkyunkwan University (SKKU), advised by Prof. Jong Hwan Ko in the <a href="https://iris.skku.edu/" target="_blank" style="color: inherit; text-decoration: underline;">IRIS Lab</a>. I pursue <strong>efficient AI systems</strong> that enable practical deployment of advanced models under real-world resource constraints. My current research focuses on <strong>model compression</strong>, particularly <strong>Mixture of Experts (MoE)</strong> and extending MoE concepts to diverse computational fields. Previously, I have explored emerging machine learning algorithms such as <strong>Hyperdimensional Computing</strong> with In-Memory Computing. I'm also passionate about mathematics and education!</p>
                     <div class="social-links">
-                        <a href="https://drive.google.com/file/d/1666-6Vw7_cBQKotbmtAjm1W-rOVKaAZy/view?usp=drive_link" target="_blank" title="CV">
+                        <a href="https://raw.githubusercontent.com/dy-kang/dy-kang.github.io/main/25_DY_CV.pdf" target="_blank" title="CV">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                         </a>
                         <a href="mailto:ksps7106@skku.edu" title="Email">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                         </a>
-                        <!-- <a href="#" title="GitHub">
+                        <a href="https://github.com/dy-kang" target="_blank" title="GitHub">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                        </a> -->
+                        </a>
                         <a href="https://www.linkedin.com/in/do-yeong-kang-070241349" target="_blank" title="LinkedIn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                         </a>
@@ -366,9 +360,10 @@
         <div class="container">
             <ul>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#publication">Publication</a></li>
-                <li><a href="#project">Project</a></li>
-                <li><a href="#activities">Other Activities</a></li>
+                <li><a href="#publication">Publications</a></li>
+                <li><a href="#awards">Honors & Awards</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#activities">Activities</a></li>
             </ul>
         </div>
     </nav>
@@ -379,15 +374,15 @@
             <div class="card">
                 <div class="card-content">
                     <h3 class="card-title">M.S. in Electrical and Computer Engineering</h3>
-                    <div class="card-date">Sep. 2024 - Present</div>
-                    <p class="card-description">SKKU, IRIS lab (advised by Jong Hwan Ko)</p>
+                    <div class="card-date">Sep 2024 - Present</div>
+                    <p class="card-description">Sungkyunkwan University (SKKU) | GPA: 4.0/4.5</p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-content">
                     <h3 class="card-title">B.S. in Mathematics / Electronic and Electrical Engineering</h3>
-                    <div class="card-date">Mar. 2018 - Aug. 2024</div>
-                    <p class="card-description">SKKU, Double major</p>
+                    <div class="card-date">Mar 2018 - Aug 2024</div>
+                    <p class="card-description">Sungkyunkwan University (SKKU), Double major</p>
                 </div>
             </div>
         </div>
@@ -395,11 +390,18 @@
 
     <section id="publication">
         <div class="container">
-            <h2 class="section-title">📄 Publication</h2>
+            <h2 class="section-title">📄 Publications</h2>
+            <div class="card clickable" onclick="openModal('pub3')">
+                <div class="card-content">
+                    <h3 class="card-title">MoRE: Mixture of Remapping Experts for Irreversible Feature-Level Unlearning</h3>
+                    <div class="card-date">(Under Review)</div>
+                    <p class="card-description">A novel framework for efficient machine unlearning using Mixture of Experts.</p>
+                </div>
+            </div>
             <div class="card clickable" onclick="openModal('pub2')">
                 <div class="card-content">
                     <h3 class="card-title">Multi-Centroid Hyperdimensional Computing for Compact IMC Arrays via Dimension Pruning</h3>
-                    <div class="card-date">*Under Review</div>
+                    <div class="card-date">IEEE Internet of Things Journal (Under Review)</div>
                     <p class="card-description">Dimension pruning in hyperdimensional computing to achieve full utilization of compact IMC arrays.</p>
                 </div>
             </div>
@@ -413,21 +415,55 @@
         </div>
     </section>
 
-    <section id="project">
+    <section id="awards">
         <div class="container">
-            <h2 class="section-title">🎯 Project</h2>
-            <div class="card clickable" onclick="openModal('proj2')">
+            <h2 class="section-title">🏆 Honors & Awards</h2>
+            <div class="card">
                 <div class="card-content">
-                    <h3 class="card-title">Cross-disciplinary Research Award (2nd place)</h3>
-                    <div class="card-date">Mar. 2024 - Jun. 2024</div>
-                    <p class="card-description">Research on optimization of Once-for-All-Network Training, collaborating with students from Mathematics, Electronics and Electrical Engineering, and Mechanical Engineering.</p>
+                    <h3 class="card-title">Samsung Outstanding Paper Award</h3>
+                    <div class="card-date">Oct 2025 | Samsung Electronics</div>
+                    <p class="card-description">🏆 <span style="color: #ff4d4d; font-weight: bold;">Best Paper Award</span> for Samsung Electronics-Universities Collaboration Program.</p>
                 </div>
             </div>
-            <div class="card clickable" onclick="openModal('proj1')">
+            <div class="card">
                 <div class="card-content">
-                    <h3 class="card-title">1st SKKU Autonomous Driving SW Competition (3rd place)</h3>
-                    <div class="card-date">Mar. 2023 - Dec. 2023</div>
-                    <p class="card-description">Autonomous driving software competition using electric cars with sensors to complete three challenging missions.</p>
+                    <h3 class="card-title">DAC Young Fellows</h3>
+                    <div class="card-date">Jun 2025 | Design Automation Conference</div>
+                    <p class="card-description">Selected for emerging researchers in Electronic Design Automation (EDA) field.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="card-title">BK21 Scholarship</h3>
+                    <div class="card-date">2024 - 2025 | BrainKorea21</div>
+                    <p class="card-description">Granted $10k per year for outstanding graduate students in Department of Electrical and Computer Engineering.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="card-title">Cross-disciplinary Research Award</h3>
+                    <div class="card-date">2024 | Sungkyunkwan University</div>
+                    <p class="card-description">Awarded 2nd place (out of 16 teams) for cross-disciplinary research with students from diverse majors. <a href="https://www.skku.edu/skku/campus/skk_comm/news.do?mode=view&articleNo=118941" target="_blank" style="color: #28a745; text-decoration: underline;">[News]</a></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="card-title">SKKU Autonomous Driving SW Competition</h3>
+                    <div class="card-date">2023 | Hyundai Mobis & Sungkyunkwan University</div>
+                    <p class="card-description">Awarded 3rd place (out of 25 teams) in autonomous driving and parking challenges hosted by Hyundai Mobis. <a href="https://www.youtube.com/live/g6M9_985Jl4?t=15060s" target="_blank" style="color: #28a745; text-decoration: underline;">[Youtube]</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="teaching">
+        <div class="container">
+            <h2 class="section-title">👨‍🏫 Teaching</h2>
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="card-title">On-device AI (TA)</h3>
+                    <div class="card-date">Summer 2025 | SKKU</div>
+                    <p class="card-description">Delivered lectures on efficient ML and conducted hands-on sessions on GPTQ and SparseGPT <a href="https://www.kaggle.com/code/doyeongkang/ondeviceai-0822" target="_blank" style="color: #28a745; text-decoration: underline;">[Kaggle]</a>.</p>
                 </div>
             </div>
         </div>
@@ -438,50 +474,61 @@
             <h2 class="section-title">🏃🏻‍♂️ Other Activities</h2>
             <div class="card">
                 <div class="card-content">
-                    <h3 class="card-title">📚 Education</h3>
-                    <div class="card-date">Mar. 2018 - Aug. 2024</div>
-                    <p class="card-description">Tutored 15+ students in Korean SAT mathematics (Calculus, Probability and Geometry). </p>
-                    <p class="card-description">Ranked in the top 5% of tutors in Seoul/Gyeonggi area (2022, 2023).</p>
+                    <h3 class="card-title">📚 Math Tutor</h3>
+                    <div class="card-date">Mar 2018 - Aug 2024</div>
+                    <p class="card-description">Tutored 15+ students for the Korean SAT (Calculus, Probability, Geometry). Ranked in the top 5% of tutors in Seoul/Gyeonggi area (2022, 2023).</p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-content">
                     <h3 class="card-title">🪖 Military Service</h3>
-                    <div class="card-date">Oct. 2020 - Apr. 2022</div>
+                    <div class="card-date">Oct 2020 - Apr 2022</div>
                     <p class="card-description">Served as KATUSA (Korean Augmentation To the United States Army).</p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-content">
-                    <h3 class="card-title">🐶 Animal</h3>
-                    <div class="card-date">Aug. 2022 - Aug. 2024</div>
-                    <p class="card-description">Volunteer work at animal shelters for abandoned dogs and cats through university club Irion.</p>
+                    <h3 class="card-title">🐶 Animal Shelter Volunteer</h3>
+                    <div class="card-date">Aug 2022 - Aug 2024</div>
+                    <p class="card-description">Volunteered at shelters for abandoned dogs and cats through university club 'Irion'.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modals -->
+    <div id="pub3Modal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal('pub3')">×</button>
+            <div class="modal-header">
+                <h2 class="modal-title">MoRE: Mixture of Remapping Experts for Irreversible Feature-Level Unlearning</h2>
+                <div class="modal-subtitle">(Under Review)</div>
+            </div>
+            <div class="modal-body">
+                <h3>Authors</h3>
+                <p>K. E. Jeon, Y. S. Kang, <strong>D. Y. Kang</strong>, T. Y. Lee, G. M. Park, and J. H. Ko*</p>
+                <h3>Abstract</h3>
+                <p>Details will be available upon publication.</p>
+            </div>
+        </div>
+    </div>
 
     <div id="pub2Modal" class="modal">
         <div class="modal-content">
             <button class="close-button" onclick="closeModal('pub2')">×</button>
             <div class="modal-header">
                 <h2 class="modal-title">Multi-Centroid Hyperdimensional Computing for Compact IMC Arrays via Dimension Pruning</h2>
-                <div class="modal-subtitle">Under Review</div>
+                <div class="modal-subtitle">IEEE Internet of Things Journal (Under Review)</div>
             </div>
             <div class="modal-body">
                 <h3>Authors</h3>
-                <p>Do Yeong Kang, Yeong Hwan Oh, Chanwook Hwang, Jinhee Kim, Kang Eun Jeon*, Jong Hwan Ko*</p>
+                <p><strong>Do Yeong Kang</strong>, Yeong Hwan Oh, Chanwook Hwang, Jinhee Kim, Kang Eun Jeon*, Jong Hwan Ko*</p>
                 
                 <h3>Abstract</h3>
-                <p>The implementation of Hyperdimensional Computing (HDC) on In-Memory Computing (IMC) architectures faces fundamental challenges due to dimensional mismatches between high-dimensional vectors and IMC array constraints. Traditional HDC approaches utilize vectors that exceed IMC array dimensions, causing computational resource underutilization and leaving most columns unused during similarity calculations. Existing partitioning methods fail to reduce computation cycles, with challenges intensified for compact IMC arrays (64×64 and 128×128). This paper presents MEMHD, a Memory-Efficient Multi-centroid HDC framework that replaces traditional single-vector-per-class with multiple class vectors to achieve full IMC array utilization and enable single-cycle inference through clustering-based initialization and quantization-aware training. To address compact IMC array deployment, we also propose DiP-MEMHD, Dimension Pruned MEMHD, which prunes dimensions while preserving critical information through calibration and variance-based weighting. As a result, MEMHD achieves 13.25× better memory efficiency at comparable accuracy and 13.69% higher accuracy with same memory usage compared to existing binary HDC baselines. DiP-MEMHD introduces multi-centroid optimized pruning metric, showing 2.09% higher accuracy than existing pruning metrics and achieving 22.4% higher accuracy than state-of-the-art binary HDC models on compact IMC arrays with 6-8× better energy efficiency.</p>
+                <p>The implementation of Hyperdimensional Computing (HDC) on In-Memory Computing (IMC) architectures faces fundamental challenges due to dimensional mismatches. This paper presents MEMHD, a framework that uses multiple class vectors to achieve full IMC array utilization, and DiP-MEMHD, which prunes dimensions for compact arrays. MEMHD achieves 13.25× better memory efficiency, and DiP-MEMHD shows 2.09% higher accuracy than existing pruning metrics and achieves 22.4% higher accuracy than state-of-the-art binary HDC models on compact IMC arrays with 6-8× better energy efficiency.</p>
                 
                 <h3>Keywords</h3>
                 <p>Hyperdimensional Computing, In-Memory Computing, Multi-Centroid Associative Memory, Dimension Pruning</p>
-                
-                <h3>Links</h3>
-                <p>
-                    Paper will be available upon publication
-                </p>
             </div>
         </div>
     </div>
@@ -495,18 +542,17 @@
             </div>
             <div class="modal-body">
                 <h3>Authors</h3>
-                <p>Do Yeong Kang, Yeong Hwan Oh, Chanwook Hwang, Jinhee Kim, Kang Eun Jeon*, Jong Hwan Ko*</p>
+                <p><strong>Do Yeong Kang</strong>, Yeong Hwan Oh, Chanwook Hwang, Jinhee Kim, Kang Eun Jeon*, Jong Hwan Ko*</p>
                 
                 <h3>Abstract</h3>
-                <p>The implementation of Hyperdimensional Computing (HDC) on In-Memory Computing (IMC) architectures faces significant challenges due to the mismatch between high-dimensional vectors and IMC array sizes, leading to inefficient memory utilization and increased computation cycles. This paper presents MEMHD, a Memory-Efficient Multi-centroid HDC framework designed to address these challenges. MEMHD introduces a clustering-based initialization method and quantization-aware iterative learning for multi-centroid associative memory. Through these approaches and its overall architecture, MEMHD achieves a significant reduction in memory requirements while maintaining or improving classification accuracy. Our approach achieves full utilization of IMC arrays and enables one-shot (or few-shot) associative search. Experimental results demonstrate that MEMHD outperforms state-of-the-art binary HDC models, achieving up to 13.69% higher accuracy with the same memory usage, or 13.25x more memory efficiency at the same accuracy level. Moreover, MEMHD reduces computation cycles by up to 80x and array usage by up to 71x compared to baseline IMC mapping methods when mapped to 128x128 IMC arrays, while significantly improving energy and computation cycle efficiency.</p>
+                <p>This paper presents MEMHD, a framework to address the mismatch between high-dimensional vectors and IMC array sizes. MEMHD introduces clustering-based initialization and quantization-aware learning for multi-centroid associative memory, achieving full IMC array utilization and one-shot associative search. It outperforms state-of-the-art binary HDC models, achieving up to 13.69% higher accuracy or 13.25x more memory efficiency, and reduces computation cycles by up to 80x.</p>
                 
                 <h3>Keywords</h3>
                 <p>Hyperdimensional Computing, In-Memory Computing, Multi-Centroid</p>
                 
                 <h3>Links</h3>
                 <p>
-                    <a href="https://www.arxiv.org/abs/2502.07834" target="_blank">Paper</a> | 
-                    <a href="https://drive.google.com/file/d/1KP-csZMp8lb5LWz71ak0YbPxBrFktBW_/view?usp=drive_link" target="_blank">Poster</a>
+                    <a href="https://arxiv.org/abs/2402.07834" target="_blank">Paper Link</a>
                 </p>
             </div>
         </div>
@@ -517,25 +563,20 @@
             <button class="close-button" onclick="closeModal('proj1')">×</button>
             <div class="modal-header">
                 <h2 class="modal-title">1st SKKU Autonomous Driving SW Competition (3rd place)</h2>
-                <div class="modal-subtitle">Mar. 2023 - Aug. 2023</div>
+                <div class="modal-subtitle">Mar 2023 - Dec 2023</div>
             </div>
             <div class="modal-body">
                 <h3>Project Overview</h3>
-                <p>Participated in an autonomous driving competition using children's electric cars equipped with 2D lidar, cameras, and ultrasonic sensors to complete three missions:</p>
-                <ul>
-                    <li>Mission 1: Autonomous driving on a track for 2 laps</li>
-                    <li>Mission 2: Obstacle avoidance and traffic light detection</li>
-                    <li>Mission 3: Parking between two randomly parked vehicles</li>
-                </ul>
+                <p>Participated in an autonomous driving competition using children's electric cars equipped with 2D lidar, cameras, and ultrasonic sensors to complete three missions: track driving, obstacle avoidance, and parking.</p>
                 
                 <h3>My Contributions</h3>
                 <ul>
-                    <li><strong>Vehicle Steering Angle Exploration:</strong> Experimentally determined the relationship between motor speed and steering, converting analog angles to digital values for use as parameters</li>
-                    <li><strong>2D Lidar Sensor Implementation:</strong> Used lidar sensors for obstacle detection and triangulation to identify parking spaces without collisions (achieved highest score among participating teams!)</li>
+                    <li><strong>Vehicle Steering Control:</strong> Converted analog steering angles to digital values for precise control.</li>
+                    <li><strong>Lidar-based Parking:</strong> Implemented 2D lidar for obstacle detection and triangulation to identify parking spaces, achieving the highest score in this mission.</li>
                 </ul>
                 
                 <h3>Results</h3>
-                <p>Secured 3rd place in the competition with particularly strong performance in the parking mission.</p>
+                <p>Secured 3rd place out of 25 teams.</p>
                 
                 <h3>Links</h3>
                 <p><a href="https://www.youtube.com/live/g6M9_985Jl4?si=ek94oLn6wSLZp_2u&t=15060" target="_blank">Competition Video (4:11:00~4:17:00)</a></p>
@@ -548,25 +589,22 @@
             <button class="close-button" onclick="closeModal('proj2')">×</button>
             <div class="modal-header">
                 <h2 class="modal-title">Cross-disciplinary Research Award (2nd place)</h2>
-                <div class="modal-subtitle">2023</div>
+                <div class="modal-subtitle">Mar 2024 - Jun 2024</div>
             </div>
             <div class="modal-body">
                 <h3>Project Overview</h3>
-                <p>Conducted collaborative research with students from various disciplines including Mathematics, Electronics and Electrical Engineering, and Mechanical Engineering.</p>
+                <p>Conducted collaborative research with students from Mathematics, Electronics, and Mechanical Engineering to optimize training for Once-for-All-Networks.</p>
                 
-                <h3>Research Topic</h3>
-                <p>Optimization of Training for Once-for-All-Networks:</p>
+                <h3>Research Topic & Contributions</h3>
                 <ul>
-                    <li>Shared a single BatchNorm layer across all bit precision levels to maintain accuracy while reducing training time</li>
-                    <li>Analyzed the impact of Quantization Aware Training (QAT) on weights, confirming different output distributions before and after quantization</li>
-                    <li>Implemented Weight Bias Correction to maintain consistent output distribution</li>
-                    <li>Achieved 20% reduction in overall training time while maintaining accuracy</li>
+                    <li>Shared a single BatchNorm layer across all bit precision levels to reduce training time.</li>
+                    <li>Analyzed the impact of Quantization Aware Training (QAT) on weights.</li>
+                    <li>Implemented Weight Bias Correction to maintain consistent output distribution.</li>
+                    <li>Provided mathematical background for convolution operations and bias correction.</li>
                 </ul>
-                
-                <h3>My Contributions</h3>
-                <ul>
-                    <li>Provided mathematical background for convolution operations between distributions and bias correction</li>
-                </ul>
+
+                <h3>Results</h3>
+                <p>Achieved a 20% reduction in overall training time while maintaining accuracy, securing 2nd place out of 16 teams.</p>
                 
                 <h3>Links</h3>
                 <p><a href="https://www.skku.edu/skku/campus/skk_comm/news.do?mode=view&articleNo=118941" target="_blank">SKKU News Article</a></p>
@@ -605,11 +643,21 @@
 
         // Close modal when clicking outside
         window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-                document.body.style.overflow = 'auto';
+            const modals = document.getElementsByClassName('modal');
+            for (let i = 0; i < modals.length; i++) {
+                if (event.target == modals[i]) {
+                    modals[i].style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
             }
         }
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
