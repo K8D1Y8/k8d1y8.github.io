@@ -1,0 +1,9 @@
+# Local-only: the design-planning artifact should not be published with the site.
+# (.nojekyll disables Jekyll, so without this _plan/ would be served at /_plan/.)
+_plan/
+
+# Local tooling / preview
+.claude/
+
+# macOS
+.DS_Store

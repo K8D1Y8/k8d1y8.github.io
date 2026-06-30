@@ -1,651 +1,318 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do Yeong Kang</title>
-    <style>
-        :root {
-            --navy: #2c3e50;  /* Lighter navy color */
-            --light-navy: #3a4e61;
-            --lightest-navy: #4a5e70;
-            --edu-navy: #34495e; /* Lighter color for education box */
-            --activity-blue: #2c5282;  /* Different blue for Other Activities */
-            --activity-blue-light: #4373b3;
-            --white: #ffffff;
-            --black: #000000;
-        }
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do Yeong Kang — Academic Homepage</title>
+<meta name="description" content="Do Yeong Kang — incoming Ph.D. in ECE at Georgia Tech (Green Lab). Efficient AI, model compression, and hyperdimensional / in-memory computing.">
+<meta name="theme-color" content="#F4F2EC">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23F4F2EC'/><circle cx='32' cy='32' r='15' fill='%23C8714F'/></svg>">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Do Yeong Kang — Academic Homepage">
+<meta property="og:description" content="Efficient AI, model compression, and hyperdimensional / in-memory computing.">
+<meta property="og:url" content="https://K8D1Y8.github.io">
+<meta property="og:image" content="assets/photo.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Do Yeong Kang — Academic Homepage">
+<meta name="twitter:description" content="Efficient AI, model compression, and hyperdimensional / in-memory computing.">
+<style>
+:root{
+  --bg:#F4F2EC; --surface:#FFFFFF; --surface2:#FBFAF6; --line:#E7E3D7;
+  --ink:#23211C; --muted:#6F6B62; --faint:#706B62;
+  --accent:#C8714F; --accent-ink:#A8492E; --accent-soft:#F3E5DC; --accent-line:#E6CCBD;
+  --good:#5C7F5A; --good-soft:#E7EEE3; --good-line:#CFE0C7;
+  --bad:#B4503C; --bad-soft:#F3E0DB; --bad-line:#E8CDC4;
+  --ink-dark:#2B2823; --ink-dark-tx:#EDE8DD;
+  --shadow:0 1px 2px rgba(40,35,25,.05),0 1px 8px rgba(40,35,25,.04);
+  --serif:Georgia,"Tiempos","Times New Roman",serif;
+  --sans:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,sans-serif;
+  --mono:ui-monospace,Menlo,"SF Mono",monospace;
+  --wrap:1120px; --read:820px; --radius:12px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.7 var(--serif);-webkit-font-smoothing:antialiased}
+/* prose & headings are serif; keep small UI labels in sans for crispness */
+.nav nav a,.kicker,.tag,.chip,.pill,.badge,.lk,.iconlink .lbl{font-family:var(--sans)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+a{color:var(--accent-ink);text-decoration:none}
+a:hover{text-decoration:underline}
+p{margin:.6em 0}
+code{font:.92em var(--mono);background:var(--surface2);border:1px solid var(--line);
+  border-radius:5px;padding:1px 5px;color:var(--muted)}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', 'Helvetica', sans-serif;
-        }
+/* headings — serif display */
+h1{font:600 34px/1.15 var(--serif);letter-spacing:-.02em;margin:0}
+h2{font:600 22px/1.3 var(--serif);letter-spacing:-.01em;margin:0 0 6px}
+h3{font:600 15px/1.35 var(--serif);margin:0 0 4px}
+section{margin-top:46px;scroll-margin-top:70px}
+.rule{height:1px;background:var(--line);margin:10px 0 20px}
+.lead{font-size:17px;color:var(--ink)}
+.muted{color:var(--muted)} .small{font-size:12.5px}
 
-        body {
-            background-color: var(--white);
-            color: var(--black);
-            line-height: 1.6;
-        }
+/* scroll progress */
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:60;transition:width .1s}
+.skip{position:absolute;left:10px;top:-44px;z-index:70;background:var(--surface);border:1px solid var(--line);
+  border-radius:8px;padding:8px 13px;color:var(--accent-ink);font-size:13px;transition:top .15s}
+.skip:focus{top:10px}
+#main:focus{outline:none}
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
+/* sticky top nav */
+.nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav .inner{display:flex;align-items:center;justify-content:space-between;height:54px;
+  max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.nav .brand{font:600 16px var(--serif);color:var(--ink)}
+.nav nav{display:flex;flex-wrap:wrap;gap:18px}
+.nav nav a{color:var(--muted);font-size:13px}
+.nav nav a:hover{color:var(--accent-ink);text-decoration:none}
 
-        header {
-            padding: 40px 0;
-            text-align: center;
-        }
+/* hero — 2 column (text left, photo right) */
+.hero{padding:48px 0 8px}
+.herobox{display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center}
+.kicker{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:10px}
+.hero .role{font-size:15px;color:var(--muted);margin-top:8px}
+.hero .bio{font-size:17px;color:var(--ink);margin-top:14px}
+.photo{width:168px;height:168px;border-radius:50%;background:var(--accent-soft);
+  border:1px solid var(--accent-line);display:flex;align-items:center;justify-content:center;
+  color:var(--accent-ink);font:600 46px var(--serif);overflow:hidden;flex:none}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
 
-        .navbar {
-            background-color: var(--navy);
-            position: sticky;
-            top: 0;
-            padding: 15px 0;
-            z-index: 100;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+/* social / link row — uniform 40x40 square buttons; icons expand to a label on hover (toggle) */
+.social{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;align-items:center}
+.iconlink,.cvblock{display:inline-flex;align-items:center;justify-content:center;height:40px;min-width:40px;
+  border:1px solid var(--line);border-radius:10px;background:var(--surface);box-shadow:var(--shadow);
+  overflow:hidden;transition:background .18s,border-color .18s,color .18s}
+.iconlink{padding:0 10px;color:var(--ink)}
+.iconlink svg{width:18px;height:18px;flex:none;fill:currentColor}
+.iconlink .lbl{max-width:0;opacity:0;white-space:nowrap;font-size:13.5px;font-weight:500;margin-left:0;
+  transition:max-width .22s ease,opacity .18s ease,margin-left .22s ease}
+.iconlink:hover,.cvblock:hover{background:var(--accent-soft);border-color:var(--accent-line);color:var(--accent-ink);text-decoration:none}
+.iconlink:hover .lbl,.iconlink:focus-visible .lbl{max-width:160px;opacity:1;margin-left:8px}
+.iconlink:focus-visible,.cvblock:focus-visible{outline:2px solid var(--accent-ink);outline-offset:2px}
+.cvblock{color:var(--ink);font:600 15px var(--serif)}
+.btn{display:inline-block;font:500 13px var(--sans);background:var(--surface);color:var(--ink);
+  border:1px solid var(--line);border-radius:8px;padding:7px 13px;cursor:pointer}
+.btn:hover{background:var(--surface2);text-decoration:none}
+.btn.go{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.go:hover{filter:brightness(.96)}
 
-        .navbar ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            flex-wrap: wrap;
-        }
+/* cards / chips */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;box-shadow:var(--shadow)}
+.chip{display:inline-block;font-size:11.5px;padding:2px 9px;border-radius:8px;line-height:1.3;
+  background:var(--surface2);border:1px solid var(--line);color:var(--muted);vertical-align:middle}
+.tag{display:inline-block;font-size:11px;color:var(--accent-ink);background:var(--accent-soft);
+  border:1px solid var(--accent-line);border-radius:6px;padding:1px 7px;margin-bottom:8px}
 
-        .navbar ul li {
-            margin: 5px 15px;
-        }
+/* research interest cards */
+.mech{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.mech .m{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:15px 17px;box-shadow:var(--shadow)}
+.mech .m p{margin:.3em 0 0;font-size:13.5px;color:var(--muted)}
 
-        .navbar ul li a {
-            color: var(--white);
-            text-decoration: none;
-            position: relative;
-            transition: opacity 0.3s ease;
-        }
+/* publications — grouped by year */
+.year{display:flex;align-items:baseline;gap:12px;margin:24px 0 4px}
+.year .y{font:600 17px var(--serif);color:var(--ink)}
+.year .ln{flex:1;height:1px;background:var(--line)}
+.pub{padding:13px 0;border-bottom:1px solid var(--line)}
+.pub:last-child{border-bottom:none}
+.pub .ti{font-weight:600;color:var(--ink);font-size:15.5px}
+.pub .au{font-size:13px;color:var(--muted);margin-top:3px}
+.pub .au b{color:var(--ink)}
+.pub .vn{font-size:13px;color:var(--ink);margin-top:4px}
+.pub .vn .venue{color:var(--accent-ink);font-style:italic}
+.pub .links{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px}
+.lk{display:inline-block;font-size:11.5px;line-height:1.3;color:var(--muted);border:1px solid var(--line);
+  background:var(--surface2);border-radius:8px;padding:2px 9px;vertical-align:middle}
+.lk:hover{text-decoration:none;color:var(--accent-ink);border-color:var(--accent-line);background:var(--accent-soft)}
 
-        .navbar ul li a:hover {
-            opacity: 0.8;
-        }
+/* news timeline */
+.news{list-style:none;padding:0;margin:0}
+.news li{display:flex;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
+.news li:last-child{border-bottom:none}
+.news .date{flex:none;width:92px;font:600 12.5px var(--mono);color:var(--muted);padding-top:1px}
+.news .what{font-size:14px}
 
-        .navbar ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--white);
-            transition: width 0.3s ease;
-        }
+/* simple lists (awards / teaching) */
+.simple{list-style:none;padding:0;margin:0}
+.simple li{padding:10px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.simple li:last-child{border-bottom:none}
+.simple .meta{font-size:12.5px;color:var(--muted);margin-top:2px}
 
-        .navbar ul li a:hover::after {
-            width: 100%;
-        }
+/* contact */
+.contact{display:flex;flex-wrap:wrap;gap:10px 28px;font-size:14.5px}
+.contact .row b{font-weight:600;color:var(--ink)}
+.contact .row span{color:var(--muted);display:inline-block;width:74px}
 
-        .profile {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
+footer{margin:56px 0 40px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--faint);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 
-        .profile-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 30px;
-            flex-shrink: 0;
-        }
+@media(max-width:720px){
+  h1{font-size:28px}
+  .nav nav{display:none}
+  .herobox{grid-template-columns:1fr;gap:22px;text-align:left}
+  .photo{width:120px;height:120px;font-size:34px}
+  section{margin-top:38px}
+}
+/* subtle "show older" toggle (news) */
+.morebtn{margin-top:12px;background:none;border:none;color:var(--faint);font:500 12.5px var(--sans);
+  cursor:pointer;padding:4px 0;letter-spacing:.04em}
+.morebtn:hover{color:var(--accent-ink)}
+.news li[hidden]{display:none}
+</style>
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="bar"></div>
 
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+<!-- ============ TOP NAV ============ -->
+<div class="nav"><div class="inner">
+  <span class="brand">Do Yeong Kang</span>
+  <nav>
+    <a href="#news">News</a>
+    <a href="#publications">Publications</a>
+    <a href="#awards">Awards</a>
+    <a href="#teaching">Teaching</a>
+  </nav>
+</div></div>
 
-        .profile-info {
-            flex: 1;
-            min-width: 300px;
-            position: relative;
-        }
+<main class="wrap" id="main" tabindex="-1">
 
-        .profile-info h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-            color: var(--black);
-        }
-
-        .profile-info p {
-            color: var(--black);
-            margin-bottom: 15px;
-            padding-bottom: 50px; /* Make space for the social icons */
-        }
-
-        .social-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
-
-        .social-links a {
-            color: #444;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            margin: 0 5px;
-        }
-
-        .social-links a:hover {
-            color: var(--navy);
-        }
-
-        section {
-            padding: 30px 0;
-        }
-
-        .section-title {
-            font-size: 28px;
-            margin-bottom: 30px;
-            position: relative;
-            text-align: center;
-            color: var(--black);
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background-color: var(--navy);
-        }
-
-        .card {
-            background-color: var(--navy);
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        #education .card, #teaching .card, #awards .card {
-        background-color: var(--activity-blue);
-        }
-        #activities .card {
-        background-color: var(--activity-blue-light); /* Other Activities만 밝게 */
-        }
-
-        .card-content {
-            padding: 20px;
-            color: var(--white);
-        }
-
-        .card-title {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .card-date {
-            font-size: 14px;
-            opacity: 0.8;
-            margin-bottom: 10px;
-        }
-
-        .card-description {
-            opacity: 0.9;
-            font-size: 15px;
-        }
-
-        .clickable {
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .clickable:hover {
-            transform: translateY(-3px);
-        }
-
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            background-color: var(--white);
-            margin: 50px auto;
-            padding: 30px;
-            width: 90%;
-            max-width: 800px;
-            border-radius: 8px;
-            position: relative;
-            color: var(--black);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .close-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            color: var(--navy);
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .modal-header {
-            margin-bottom: 20px;
-        }
-
-        .modal-title {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: var(--navy);
-        }
-
-        .modal-subtitle {
-            color: var(--black);
-            opacity: 0.7;
-            font-size: 16px;
-        }
-
-        .modal-body {
-            color: var(--black);
-        }
-
-        .modal-body h3 {
-            color: var(--navy);
-            margin: 20px 0 10px;
-        }
-
-        .modal-body p {
-            margin-bottom: 15px;
-        }
-
-        .modal-body ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        .modal-body a {
-            color: var(--navy);
-            text-decoration: underline;
-        }
-
-        footer {
-            background-color: var(--navy);
-            padding: 20px 0;
-            text-align: center;
-            margin-top: 30px;
-            color: var(--white);
-        }
-
-        .copyright {
-            opacity: 0.8;
-            font-size: 14px;
-        }
-
-        @media screen and (max-width: 768px) {
-            .profile {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            
-            .profile-image {
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-            
-            .social-links {
-                position: static;
-                margin-top: 15px;
-            }
-            
-            .profile-info p {
-                padding-bottom: 0;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <div class="profile">
-                <div class="profile-image">
-                    <img src="images/profile_img.jpeg" alt="Profile Photo">
-                </div>
-                <div class="profile-info">
-                    <h1>Do Yeong Kang</h1>
-                    <p>Hello👋 I'm an M.S. student in Electrical and Computer Engineering at Sungkyunkwan University (SKKU), advised by Prof. Jong Hwan Ko in the <a href="https://iris.skku.edu/" target="_blank" style="color: inherit; text-decoration: underline;">IRIS Lab</a>. I pursue <strong>efficient AI systems</strong> that enable practical deployment of advanced models under real-world resource constraints. My current research focuses on <strong>model compression</strong>, particularly <strong>Mixture of Experts (MoE)</strong> and extending MoE concepts to diverse computational fields. Previously, I have explored emerging machine learning algorithms such as <strong>Hyperdimensional Computing (HDC) with In-Memory Computing (IMC)</strong>. I'm also passionate about mathematics and education!</p>
-                    <div class="social-links">
-                        <a href="https://drive.google.com/file/d/16dnmM-CvzNWxCXJhWD4FEOEpU_Siaql8/view?usp=sharing" target="_blank" title="CV">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                        </a>
-                        <a href="mailto:ksps7106@skku.edu" title="Email">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        </a>
-                        <a href="https://www.linkedin.com/in/do-yeong-kang-070241349" target="_blank" title="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
+  <!-- ============ HERO (edit name / role / bio / links / photo) ============ -->
+  <header class="hero">
+    <div class="herobox">
+      <div>
+        <div class="kicker">Ph.D. Student · Efficient AI</div>
+        <h1>Do Yeong Kang</h1>
+        <div class="role">Green Lab, Dept. of Electrical &amp; Computer Engineering, Georgia Institute of Technology</div>
+        <p class="bio">Hello! <span aria-hidden="true">👋</span> I am a Ph.D. student in Electrical and
+          Computer Engineering at the <em>Georgia Institute of Technology</em>, in the Green Lab with
+          Prof. Saibal Mukhopadhyay. I recently completed my M.S. at <em>Sungkyunkwan University (SKKU)</em>,
+          advised by Prof. Jong Hwan Ko. My broader goal is to accelerate large language model (LLM) inference — making
+          powerful models cheap and fast enough to run anywhere, from the data center to in-memory
+          hardware at the edge. Concretely, I work on model compression (low-rank and token-adaptive SVD,
+          MoE), tensor decomposition, and hardware-friendly algorithms for hyperdimensional and in-memory
+          computing.</p>
+        <div class="social">
+          <a class="iconlink" href="mailto:dykang@gatech.edu" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span class="lbl">Email</span></a>
+          <a class="iconlink" href="https://scholar.google.com/citations?user=3xkTutQAAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+            <span class="lbl">Google Scholar</span></a>
+          <a class="iconlink" href="https://github.com/K8D1Y8" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            <span class="lbl">GitHub</span></a>
+          <a class="iconlink" href="https://www.linkedin.com/in/do-yeong-kang-070241349/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span class="lbl">LinkedIn</span></a>
+          <a class="cvblock" href="assets/cv.pdf">CV</a>
         </div>
-    </header>
+      </div>
+      <div class="photo"><img src="assets/photo.jpg" alt="Do Yeong Kang"></div>
+    </div>
+  </header>
 
-    <nav class="navbar">
-        <div class="container">
-            <ul>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#publication">Publications</a></li>
-                <li><a href="#awards">Honors & Awards</a></li>
-                <li><a href="#teaching">Teaching</a></li>
-                <li><a href="#activities">Activities</a></li>
-            </ul>
-        </div>
-    </nav>
+  <!-- ============ NEWS (newest first — first 5 shown, the rest behind a subtle toggle) ============ -->
+  <section id="news">
+    <h2>News</h2><div class="rule"></div>
+    <!-- Some dates are approximate — adjust to the real months. -->
+    <ul class="news">
+      <li><span class="date">2026.08</span><span class="what">Starting my Ph.D. at the <b>Georgia Institute of Technology</b> (Green Lab), advised by Prof. Saibal Mukhopadhyay. <span aria-hidden="true">🎉</span></span></li>
+      <li><span class="date">2026.06</span><span class="what">2nd place at the <b>Nota AI On-Device AI Optimization Challenge</b> (NetsPresso On-Device LLM track).</span></li>
+      <li><span class="date">2026.06</span><span class="what"><b>R-ESC</b> accepted to ECCV 2026.</span></li>
+      <li><span class="date">2026.05</span><span class="what"><b>HyperSPACE</b> accepted to ISLPED 2026.</span></li>
+      <li class="xnews" hidden><span class="date">2025.06</span><span class="what">Selected as a <b>DAC Young Fellow</b> and received the Samsung Outstanding Poster Award.</span></li>
+      <li class="xnews" hidden><span class="date">2025.03</span><span class="what">Presented <b>MEMHD</b> at DATE 2025.</span></li>
+      <li class="xnews" hidden><span class="date">2024.11</span><span class="what">Filed a patent on memory-efficient HDC for in-memory computing.</span></li>
+    </ul>
+    <button class="morebtn" id="newsMore" aria-expanded="false" aria-controls="news">··· show older</button>
+  </section>
 
-    <section id="education">
-        <div class="container">
-            <h2 class="section-title">🎓 Education</h2>
-            <div class="card">
-                <div class="card-content">
-                    <h3 class="card-title">M.S. in Electrical and Computer Engineering</h3>
-                    <div class="card-date">Sep 2024 - Present</div>
-                    <p class="card-description">Sungkyunkwan University (SKKU) | GPA: 4.0/4.5</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h3 class="card-title">B.S. in Mathematics / Electronic and Electrical Engineering</h3>
-                    <div class="card-date">Mar 2018 - Aug 2024</div>
-                    <p class="card-description">Sungkyunkwan University (SKKU), Double major</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ============ PUBLICATIONS (grouped by year, newest first) ============ -->
+  <section id="publications">
+    <h2>Publications</h2><div class="rule"></div>
+    <p class="small muted">* Corresponding author &nbsp;·&nbsp; † Equal contribution. &nbsp;Add PDF / arXiv / code links as they become available.</p>
 
-    <section id="publication">
-        <div class="container">
-            <h2 class="section-title">📄 Publications</h2>
-            <div class="card clickable" onclick="openModal('pub3')">
-                <div class="card-content">
-                    <h3 class="card-title">MoRE: Mixture of Remapping Experts for Irreversible Feature-Level Unlearning</h3>
-                    <div class="card-date">ICLR 2026 (Under Review)</div>
-                    <p class="card-description">A novel framework for exact, irreversible, and scalable feature-level machine unlearning.</p>
-                </div>
-            </div>
-            <div class="card clickable" onclick="openModal('pub2')">
-                <div class="card-content">
-                    <h3 class="card-title">Multi-Centroid Hyperdimensional Computing for Compact IMC Arrays via Dimension Pruning</h3>
-                    <div class="card-date">IEEE Internet of Things Journal (Under Review)</div>
-                    <p class="card-description">Dimension pruning in Hyperdimensional Computing to achieve full utilization of compact IMC arrays.</p>
-                </div>
-            </div>
-            <div class="card clickable" onclick="openModal('pub1')">
-                <div class="card-content">
-                    <h3 class="card-title">MEMHD: Memory-Efficient Multi-Centroid Hyperdimensional Computing for Fully-Utilized In-Memory Computing Architectures</h3>
-                    <div class="card-date">DATE 2025</div>
-                    <p class="card-description">Efficient multi-centroid associative memory optimized to IMC arrays.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="year"><span class="y">2026</span><span class="ln"></span></div>
 
-    <section id="awards">
-        <div class="container">
-            <h2 class="section-title">🏆 Honors & Awards</h2>
-            <div class="card">
-                <div class="card-content">
-                    <h3 class="card-title">DAC Young Fellows</h3>
-                    <div class="card-date">Jun 2025 | Design Automation Conference</div>
-                    <p class="card-description">Selected for emerging researchers in Electronic Design Automation (EDA) field.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h3 class="card-title">BK21 Scholarship</h3>
-                    <div class="card-date">2024 - 2025 | BrainKorea21</div>
-                    <p class="card-description">Granted $10k per year for outstanding graduate students in Department of Electrical and Computer Engineering.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h3 class="card-title">Cross-disciplinary Research Award</h3>
-                    <div class="card-date">2024 | Sungkyunkwan University (SKKU)</div>
-                    <p class="card-description">Awarded 2nd place (out of 16 teams) for cross-disciplinary research with students from diverse majors. <a href="https://www.skku.edu/skku/campus/skk_comm/news.do?mode=view&articleNo=118941" target="_blank" style="color: #28a745; text-decoration: underline;">[News]</a></p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h3 class="card-title">SKKU Autonomous Driving SW Competition</h3>
-                    <div class="card-date">2023 | Hyundai Mobis & Sungkyunkwan University (SKKU)</div>
-                    <p class="card-description">Awarded 3rd place (out of 25 teams) in autonomous driving and parking challenges hosted by Hyundai Mobis. <a href="https://www.youtube.com/live/g6M9_985Jl4?t=15060s" target="_blank" style="color: #28a745; text-decoration: underline;">[Youtube]</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="teaching">
-        <div class="container">
-            <h2 class="section-title">✏️ Teaching</h2>
-            <div class="card">
-                <div class="card-content">
-                    <h3 class="card-title">On-device AI (TA)</h3>
-                    <div class="card-date">Summer 2025 | Sungkyunkwan University (SKKU)</div>
-                    <p class="card-description">Delivered lectures on efficient ML and conducted hands-on sessions on GPTQ and SparseGPT <a href="https://www.kaggle.com/code/doyeongkang/ondeviceai-0822" target="_blank" style="color: #28a745; text-decoration: underline;">[Kaggle]</a>.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="activities">
-        <div class="container">
-            <h2 class="section-title">🏃🏻‍♂️ Other Activities</h2>
-            <div class="card">
-                <div class="card-content">
-                    <h3 class="card-title">📚 Math Tutor</h3>
-                    <div class="card-date">Mar 2018 - Aug 2024</div>
-                    <p class="card-description">Tutored 15+ students for the Korean SAT (Calculus, Probability, Geometry). Ranked in the top 5% of tutors in Seoul/Gyeonggi area (2022, 2023).</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h3 class="card-title">🪖 Military Service</h3>
-                    <div class="card-date">Oct 2020 - Apr 2022</div>
-                    <p class="card-description">Served as KATUSA (Korean Augmentation To the United States Army).</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h3 class="card-title">🐶 Animals</h3>
-                    <div class="card-date">Jun 2022 - Aug 2024</div>
-                    <p class="card-description">Volunteered at shelters for abandoned dogs and cats through university club 'Irion'.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modals -->
-    <div id="pub3Modal" class="modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="closeModal('pub3')">×</button>
-            <div class="modal-header">
-                <h2 class="modal-title">MoRE: Mixture of Remapping Experts for Irreversible Feature-Level Unlearning</h2>
-                <div class="modal-subtitle">(Under Review)</div>
-            </div>
-            <div class="modal-body">
-                <h3>Authors</h3>
-                <p>K. E. Jeon, Y. S. Kang, <strong>D. Y. Kang</strong>, T. Y. Lee, G. M. Park*, and J. H. Ko*</p>
-                <h3>Abstract</h3>
-                <p>Machine unlearning (MU) has emerged as a critical paradigm for enabling models to erase unwanted knowledge, not only at the instance level but also across entire concepts or classes, thereby addressing broader concerns of privacy, safety, and robustness. However, existing approaches face three persistent challenges: (1) they often degrade utility on the remain data, (2) they leave residual feature-level knowledge that makes unlearning reversible, and (3) they incur prohibitive computational or memory costs, limiting scalability. Recent works have partially addressed these issues through adversarial regularization or subspace erasure, yet both fall short of providing irreversible and scalable feature-level unlearning. We propose MoRE: Mixture of Remapping Experts, a novel framework for exact feature-level unlearning. MoRE introduces three innovations: (i) prototype-orthogonal projection to preserve remain utility by decorrelating forget and remain prototypes prior to erasure, (ii) remapping with mixture experts to merge forget prototypes into multiple remain prototypes, eliminating their separability and impeding recovery via fine-tuning, and (iii) efficient activation-mean prototypes that reduce unlearning to a single forward pass, achieving linear computational complexity and constant memory. Extensive experiments demonstrate that MoRE preserves utility, ensures irreversibility at the feature level, and scales effectively to large models and datasets, thereby establishing a principled pathway toward trustworthy and scalable machine unlearning.</p>
-            </div>
-        </div>
+    <div class="pub">
+      <div class="ti">Dynamic SVD via Token-Adaptive Basis Selection</div>
+      <div class="au"><b>D. Y. Kang</b>, S. H. Han, J. G. Choo, K. E. Jeon*, J. H. Ko*</div>
+      <div class="vn"><span class="venue">NeurIPS 2026</span> <span class="chip">under review</span></div>
     </div>
 
-    <div id="pub2Modal" class="modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="closeModal('pub2')">×</button>
-            <div class="modal-header">
-                <h2 class="modal-title">Multi-Centroid Hyperdimensional Computing for Compact IMC Arrays via Dimension Pruning</h2>
-                <div class="modal-subtitle">IEEE Internet of Things Journal (Under Review)</div>
-            </div>
-            <div class="modal-body">
-                <h3>Authors</h3>
-                <p><strong>Do Yeong Kang</strong>, Yeong Hwan Oh, Chanwook Hwang, Jinhee Kim, Kang Eun Jeon*, Jong Hwan Ko*</p>
-                
-                <h3>Abstract</h3>
-                <p>The implementation of Hyperdimensional Computing (HDC) on In-Memory Computing (IMC) architectures faces fundamental challenges due to dimensional mismatches. This paper presents MEMHD, a framework that uses multiple class vectors to achieve full IMC array utilization, and DiP-MEMHD, which prunes dimensions for compact arrays. MEMHD achieves 13.25× better memory efficiency, and DiP-MEMHD shows 2.09% higher accuracy than existing pruning metrics and achieves 22.4% higher accuracy than state-of-the-art binary HDC models on compact IMC arrays with 6-8× better energy efficiency.</p>
-                
-                <h3>Keywords</h3>
-                <p>Hyperdimensional Computing, In-Memory Computing, Multi-Centroid Associative Memory, Dimension Pruning</p>
-            </div>
-        </div>
+    <div class="pub">
+      <div class="ti">R-ESC: Robustly Erasing Space Concepts via Stochastic Feature Remapping</div>
+      <div class="au">K. E. Jeon, Y. S. Kang, <b>D. Y. Kang</b>, T. Y. Lee, G. M. Park*, J. H. Ko*</div>
+      <div class="vn"><span class="venue">ECCV 2026</span> <span class="chip">to appear</span></div>
     </div>
 
-    <div id="pub1Modal" class="modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="closeModal('pub1')">×</button>
-            <div class="modal-header">
-                <h2 class="modal-title">MEMHD: Memory-Efficient Multi-Centroid Hyperdimensional Computing for Fully-Utilized In-Memory Computing Architectures</h2>
-                <div class="modal-subtitle">DATE 2025</div>
-            </div>
-            <div class="modal-body">
-                <h3>Authors</h3>
-                <p><strong>Do Yeong Kang</strong>, Yeong Hwan Oh, Chanwook Hwang, Jinhee Kim, Kang Eun Jeon*, Jong Hwan Ko*</p>
-                
-                <h3>Abstract</h3>
-                <p>This paper presents MEMHD, a framework to address the mismatch between high-dimensional vectors and IMC array sizes. MEMHD introduces clustering-based initialization and quantization-aware learning for multi-centroid associative memory, achieving full IMC array utilization and one-shot associative search. It outperforms state-of-the-art binary HDC models, achieving up to 13.69% higher accuracy or 13.25x more memory efficiency, and reduces computation cycles by up to 80x.</p>
-                
-                <h3>Keywords</h3>
-                <p>Hyperdimensional Computing, In-Memory Computing, Multi-Centroid</p>
-                
-                <h3>Links</h3>
-                <p>
-                    <a href="https://arxiv.org/abs/2502.07834" target="_blank">Paper Link</a>
-                </p>
-            </div>
-        </div>
+    <div class="pub">
+      <div class="ti">HyperSPACE: Sparse-Adder-Compatible Encoding for Efficient Hyperdimensional Computing on Digital CIM Arrays</div>
+      <div class="au">Y. H. Oh, <b>D. Y. Kang</b>, J. Park, C. Hwang, K. E. Jeon*, J. H. Ko*</div>
+      <div class="vn"><span class="venue">ISLPED 2026</span> <span class="chip">to appear</span></div>
     </div>
 
-    <div id="proj1Modal" class="modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="closeModal('proj1')">×</button>
-            <div class="modal-header">
-                <h2 class="modal-title">1st SKKU Autonomous Driving SW Competition (3rd place)</h2>
-                <div class="modal-subtitle">Mar 2023 - Dec 2023</div>
-            </div>
-            <div class="modal-body">
-                <h3>Project Overview</h3>
-                <p>Participated in an autonomous driving competition using children's electric cars equipped with 2D lidar, cameras, and ultrasonic sensors to complete three missions: track driving, obstacle avoidance, and parking.</p>
-                
-                <h3>My Contributions</h3>
-                <ul>
-                    <li><strong>Vehicle Steering Control:</strong> Converted analog steering angles to digital values for precise control.</li>
-                    <li><strong>Lidar-based Parking:</strong> Implemented 2D lidar for obstacle detection and triangulation to identify parking spaces, achieving the highest score in this mission.</li>
-                </ul>
-                
-                <h3>Results</h3>
-                <p>Secured 3rd place out of 25 teams.</p>
-                
-                <h3>Links</h3>
-                <p><a href="https://www.youtube.com/live/g6M9_985Jl4?si=ek94oLn6wSLZp_2u&t=15060" target="_blank">Competition Video (4:11:00~4:17:00)</a></p>
-            </div>
-        </div>
+    <div class="pub">
+      <div class="ti">Multi-Centroid Hyperdimensional Computing for Compact IMC Arrays via Dimension Pruning</div>
+      <div class="au"><b>D. Y. Kang</b>†, Y. H. Oh†, C. Hwang, J. Kim, K. E. Jeon*, J. H. Ko*</div>
+      <div class="vn"><span class="venue">IEEE Internet of Things Journal</span> <span class="chip">to appear</span></div>
     </div>
 
-    <div id="proj2Modal" class="modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="closeModal('proj2')">×</button>
-            <div class="modal-header">
-                <h2 class="modal-title">Cross-disciplinary Research Award (2nd place)</h2>
-                <div class="modal-subtitle">Mar 2024 - Jun 2024</div>
-            </div>
-            <div class="modal-body">
-                <h3>Project Overview</h3>
-                <p>Conducted collaborative research with students from Mathematics, Electronics, and Mechanical Engineering to optimize training for Once-for-All-Networks.</p>
-                
-                <h3>Research Topic & Contributions</h3>
-                <ul>
-                    <li>Shared a single BatchNorm layer across all bit precision levels to reduce training time.</li>
-                    <li>Analyzed the impact of Quantization Aware Training (QAT) on weights.</li>
-                    <li>Implemented Weight Bias Correction to maintain consistent output distribution.</li>
-                    <li>Provided mathematical background for convolution operations and bias correction.</li>
-                </ul>
+    <div class="year"><span class="y">2025</span><span class="ln"></span></div>
 
-                <h3>Results</h3>
-                <p>Achieved a 20% reduction in overall training time while maintaining accuracy, securing 2nd place out of 16 teams.</p>
-                
-                <h3>Links</h3>
-                <p><a href="https://www.skku.edu/skku/campus/skk_comm/news.do?mode=view&articleNo=118941" target="_blank">SKKU News Article</a></p>
-            </div>
-        </div>
+    <div class="pub">
+      <div class="ti">MEMHD: Memory-Efficient Multi-Centroid Hyperdimensional Computing for Fully-Utilized In-Memory Computing Architectures</div>
+      <div class="au"><b>D. Y. Kang</b>, Y. H. Oh, C. Hwang, J. Kim, K. E. Jeon*, J. H. Ko*</div>
+      <div class="vn"><span class="venue">DATE 2025</span> <a class="lk" href="#">Paper</a></div>
     </div>
 
-    <footer>
-        <div class="container">
-            <p class="copyright">© 2025 Do Yeong Kang. All rights reserved.</p>
-        </div>
-    </footer>
+    <div class="year"><span class="y">2023</span><span class="ln"></span></div>
 
-    <script>
-        // Open modal
-        function openModal(id) {
-            document.getElementById(id + 'Modal').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
+    <div class="pub">
+      <div class="ti">Implementation of Autonomous Parking System Using LiDAR-based Triangulation Method</div>
+      <div class="au">E. J. Hwang, <b>D. Y. Kang</b>, J. H. Moon, H. Y. Seong, S. W. Lee, J. W. Jeon*</div>
+      <div class="vn"><span class="venue">KIPS 2023</span> <a class="lk" href="#">Paper</a></div>
+    </div>
+  </section>
 
-        // Close modal
-        function closeModal(id) {
-            document.getElementById(id + 'Modal').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Allow background scrolling
-        }
+  <!-- ============ AWARDS / HONORS ============ -->
+  <section id="awards">
+    <h2>Awards &amp; Honors</h2><div class="rule"></div>
+    <ul class="simple">
+      <li>On-Device AI Optimization Challenge — 2nd place (of 24 teams)<div class="meta">Nota AI · NetsPresso On-Device LLM Runtime Optimization track · 2026</div></li>
+      <li>Samsung Outstanding Poster Award<div class="meta">Samsung Electronics — top-voted project, Industry–Academia Collaboration Exchange · 2025</div></li>
+      <li>DAC Young Fellow<div class="meta">Design Automation Conference — emerging researchers in EDA · 2025</div></li>
+      <li>BK21 Scholarship<div class="meta">BrainKorea21 — outstanding graduate students in ECE ($10k/year) · 2024–2025</div></li>
+      <li>Cross-disciplinary Research Award — 2nd place (of 16 teams)<div class="meta">Sungkyunkwan University · 2024</div></li>
+      <li>SKKU Autonomous Driving SW Competition — 3rd place (of 25 teams)<div class="meta">Hyundai Mobis &amp; Sungkyunkwan University · 2023</div></li>
+    </ul>
+  </section>
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+  <!-- ============ TEACHING / TALKS ============ -->
+  <section id="teaching">
+    <h2>Teaching Assistant</h2><div class="rule"></div>
+    <ul class="simple">
+      <li>Data Structures and Algorithms<div class="meta">Sungkyunkwan University · undergraduate course, 50+ students · 2026</div></li>
+      <li>On-Device AI<div class="meta">Sungkyunkwan University · Next-Generation Vehicle Bootcamp (100+ students); hands-on GPTQ &amp; SparseGPT · 2025–2026</div></li>
+    </ul>
+  </section>
 
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modals = document.getElementsByClassName('modal');
-            for (let i = 0; i < modals.length; i++) {
-                if (event.target == modals[i]) {
-                    modals[i].style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            }
-        }
-    </script>
-</body>
-</html>
+  <footer>
+    <span>© <span id="yr">2026</span> Do Yeong Kang</span>
+    <span>Built with the Claude design system · hosted on GitHub Pages</span>
+  </footer>
+</main>
 
+<script>
+addEventListener('scroll',function(){var h=document.documentElement;
+  document.getElementById('bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100||0)+'%';});
+document.getElementById('yr').textContent=new Date().getFullYear();
+var nm=document.getElementById('newsMore');
+if(nm)nm.addEventListener('click',function(){
+  var open=nm.getAttribute('aria-expanded')==='true';
+  document.querySelectorAll('li.xnews').forEach(function(li){li.hidden=open;});
+  nm.setAttribute('aria-expanded',String(!open));
+  nm.textContent=open?'··· show older':'show less';
+});
+</script>
+</body></html>
