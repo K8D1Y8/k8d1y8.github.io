@@ -68,6 +68,8 @@ section{margin-top:46px;scroll-margin-top:70px}
 /* hero — 2 column (text left, photo right) */
 .hero{padding:48px 0 8px}
 .herobox{display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center}
+.herobox .herotext{grid-column:1;grid-row:1;min-width:0}
+.herobox .photo{grid-column:2;grid-row:1}
 .kicker{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:10px}
 .hero .role{font-size:15px;color:var(--muted);margin-top:8px}
 .hero .bio{font-size:17px;color:var(--ink);margin-top:14px}
@@ -150,8 +152,9 @@ footer{margin:56px 0 40px;padding-top:18px;border-top:1px solid var(--line);
 @media(max-width:720px){
   h1{font-size:28px}
   .nav nav{display:none}
-  .herobox{grid-template-columns:1fr;gap:22px;text-align:left}
-  .photo{width:120px;height:120px;font-size:34px}
+  .herobox{display:block}
+  .herobox::after{content:"";display:block;clear:both}
+  .herobox .photo{float:right;width:96px;height:96px;font-size:26px;margin:2px 0 10px 16px}
   section{margin-top:38px}
 }
 /* subtle "show older" toggle (news) */
@@ -180,7 +183,8 @@ footer{margin:56px 0 40px;padding-top:18px;border-top:1px solid var(--line);
   <!-- ============ HERO (edit name / role / bio / links / photo) ============ -->
   <header class="hero">
     <div class="herobox">
-      <div>
+      <div class="photo"><img src="assets/photo.jpg" alt="Do Yeong Kang"></div>
+      <div class="herotext">
         <div class="kicker">Ph.D. Student · Efficient AI</div>
         <h1>Do Yeong Kang</h1>
         <div class="role">Dept. of Electrical &amp; Computer Engineering, Georgia Institute of Technology</div>
@@ -208,7 +212,6 @@ footer{margin:56px 0 40px;padding-top:18px;border-top:1px solid var(--line);
           <span class="cvblock off" aria-disabled="true" title="CV — coming soon">CV</span>
         </div>
       </div>
-      <div class="photo"><img src="assets/photo.jpg" alt="Do Yeong Kang"></div>
     </div>
   </header>
 
