@@ -7,3 +7,6 @@ _plan/
 
 # macOS
 .DS_Store
+
+# CV LaTeX source (not part of the published site)
+_cv/
