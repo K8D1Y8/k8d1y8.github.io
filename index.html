@@ -174,6 +174,7 @@ footer{margin:56px 0 40px;padding-top:18px;border-top:1px solid var(--line);
     <a href="#news">News</a>
     <a href="#publications">Publications</a>
     <a href="#awards">Awards</a>
+    <a href="#patents">Patents</a>
     <a href="#teaching">Teaching</a>
   </nav>
 </div></div>
@@ -195,11 +196,8 @@ footer{margin:56px 0 40px;padding-top:18px;border-top:1px solid var(--line);
           <a href="https://iris.skku.edu/" target="_blank" rel="noopener">Prof. Jong Hwan Ko</a>. I also worked
           closely with <a href="https://jedislab.org" target="_blank" rel="noopener">Prof. Kang Eun Jeon</a>. During my undergraduate studies, I earned my B.S. in Mathematics
           and Electronic &amp; Electrical Engineering (double major) at SKKU.</p>
-        <p class="bio">My research questions are as follows: in theory, (1) <em>how high-dimensional features
-          can be captured in a compact latent space</em>; and in practice, (2) <em>how model weights and
-          computation can be reduced</em>, and (3) <em>how those gains are realized on real hardware</em>.</p>
-        <p class="bio">I'm interested in (1) Low Rank Compression and (2) Efficient Multi-Agent Systems
-          &amp; Communication. Previously, I worked on Hyperdimensional Computing (HDC) &amp; In-Memory Computing (IMC).</p>
+        <p class="bio">I'm interested in (1) <b>Low Rank Compression</b>, (2) <b>Token-Adaptive Inference</b>, and
+          (3) <b>Efficient Multi-Agent Systems &amp; Communication</b>. Previously, I worked on Hyperdimensional Computing (HDC) &amp; In-Memory Computing (IMC).</p>
         <div class="social">
           <a class="iconlink" href="mailto:dykang@gatech.edu" aria-label="Email">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -224,12 +222,11 @@ footer{margin:56px 0 40px;padding-top:18px;border-top:1px solid var(--line);
     <h2>News</h2><div class="rule"></div>
     <!-- Some dates are approximate — adjust to the real months. -->
     <ul class="news">
-      <li><span class="date">2026.08</span><span class="what"><span aria-hidden="true">📄</span> <b>DiP-MEMHD</b> accepted to IEEE Internet of Things Journal.</span></li>
-      <li><span class="date">2026.08</span><span class="what"><span aria-hidden="true">🎉</span> Starting my Ph.D. at the <b>Georgia Institute of Technology</b> (Green Lab), advised by Prof. Saibal Mukhopadhyay.</span></li>
+      <li><span class="date">2026.08</span><span class="what"><span aria-hidden="true">🎉</span> Starting my Ph.D. at Georgia Tech (Green Lab), advised by Prof. Saibal Mukhopadhyay.</span></li>
+      <li><span class="date">2026.08</span><span class="what"><span aria-hidden="true">📄</span> <b>DiP-MEMHD</b> accepted to IEEE Internet of Things Journal (IF: 8.7).</span></li>
       <li><span class="date">2026.06</span><span class="what"><span aria-hidden="true">🥈</span> 2nd place at the <b>Nota AI On-Device AI Optimization Challenge</b> (NetsPresso On-Device LLM track).</span></li>
       <li><span class="date">2026.06</span><span class="what"><span aria-hidden="true">📄</span> <b>R-ESC</b> accepted to ECCV 2026.</span></li>
       <li><span class="date">2026.05</span><span class="what"><span aria-hidden="true">📄</span> <b>HyperSPACE</b> accepted to ISLPED 2026.</span></li>
-      <li class="xnews" hidden><span class="date">2025.06</span><span class="what"><span aria-hidden="true">👍</span> Selected as a <b>DAC Young Fellow</b>.</span></li>
       <li class="xnews" hidden><span class="date">2024.11</span><span class="what"><span aria-hidden="true">📄</span> <b>MEMHD</b> accepted to DATE 2025.</span></li>
     </ul>
     <button class="morebtn" id="newsMore" aria-expanded="false" aria-controls="news">··· show older</button>
@@ -249,6 +246,12 @@ footer{margin:56px 0 40px;padding-top:18px;border-top:1px solid var(--line);
     </div>
 
     <div class="pub">
+      <div class="ti">HiDER: Test-Time Scaling with Diffusion Language Models via Hidden-State Deferral Routing</div>
+      <div class="au">S. H. Yeon, <b>D. Y. Kang</b>, J. H. Ko*</div>
+      <div class="vn"><span class="venue">AAAI 2027</span> <span class="chip">under review</span></div>
+    </div>
+
+    <div class="pub">
       <div class="ti">R-ESC: Robustly Erasing Space Concepts via Stochastic Feature Remapping</div>
       <div class="au">K. E. Jeon, Y. S. Kang, <b>D. Y. Kang</b>, T. Y. Lee, G. M. Park*, J. H. Ko*</div>
       <div class="vn"><span class="venue">ECCV 2026</span> <a class="lk" href="https://eccv.ecva.net/virtual/2026/poster/4410" target="_blank" rel="noopener">Paper</a></div>
@@ -263,7 +266,7 @@ footer{margin:56px 0 40px;padding-top:18px;border-top:1px solid var(--line);
     <div class="pub">
       <div class="ti">Multi-Centroid Hyperdimensional Computing for Compact IMC Arrays via Dimension Pruning</div>
       <div class="au"><b>D. Y. Kang</b>†, Y. H. Oh†, C. Hwang, J. Kim, K. E. Jeon*, J. H. Ko*</div>
-      <div class="vn"><span class="venue">IEEE Internet of Things Journal</span> <a class="lk" href="https://ieeexplore.ieee.org/document/11676113" target="_blank" rel="noopener">Paper</a></div>
+      <div class="vn"><span class="venue">IEEE Internet of Things Journal (IF: 8.7)</span> <a class="lk" href="https://ieeexplore.ieee.org/document/11676113" target="_blank" rel="noopener">Paper</a></div>
     </div>
 
     <div class="year"><span class="y">2025</span><span class="ln"></span></div>
@@ -287,12 +290,21 @@ footer{margin:56px 0 40px;padding-top:18px;border-top:1px solid var(--line);
   <section id="awards">
     <h2>Awards &amp; Honors</h2><div class="rule"></div>
     <ul class="simple">
-      <li>On-Device AI Optimization Challenge — 2nd place (of 24 teams)<div class="meta">Nota AI · NetsPresso On-Device LLM Runtime Optimization track · 2026</div></li>
-      <li>Samsung Outstanding Poster Award<div class="meta">Samsung Electronics — top-voted project, Industry–Academia Collaboration Exchange · 2025</div></li>
-      <li>DAC Young Fellow<div class="meta">Design Automation Conference — emerging researchers in EDA · 2025</div></li>
-      <li>BK21 Scholarship<div class="meta">BrainKorea21 — outstanding graduate students in ECE ($10k/year) · 2024–2025</div></li>
-      <li>Cross-disciplinary Research Award — 2nd place (of 16 teams)<div class="meta">Sungkyunkwan University · 2024</div></li>
-      <li>SKKU Autonomous Driving SW Competition — 3rd place (of 25 teams)<div class="meta">Hyundai Mobis &amp; Sungkyunkwan University · 2023</div></li>
+      <li><b>On-Device AI Optimization Challenge — 2nd place (of 24 teams)</b><div class="meta">Nota AI · NetsPresso On-Device LLM Runtime Optimization track · 2026</div></li>
+      <li><b>Samsung Outstanding Poster Award</b><div class="meta">Samsung Electronics — top-voted project, Industry–Academia Collaboration Exchange · 2025</div></li>
+      <li><b>DAC Young Fellow</b><div class="meta">Design Automation Conference — emerging researchers in EDA · 2025</div></li>
+      <li><b>BK21 Scholarship</b><div class="meta">BrainKorea21 — outstanding graduate students in ECE ($10k/year) · 2024–2025</div></li>
+      <li><b>Cross-disciplinary Research Award — 2nd place (of 16 teams)</b><div class="meta">Sungkyunkwan University · 2024</div></li>
+      <li><b>SKKU Autonomous Driving SW Competition — 3rd place (of 25 teams)</b><div class="meta">Hyundai Mobis &amp; Sungkyunkwan University · 2023</div></li>
+    </ul>
+  </section>
+
+  <!-- ============ PATENTS ============ -->
+  <section id="patents">
+    <h2>Patents</h2><div class="rule"></div>
+    <ul class="simple">
+      <li>SVD-based Compression of Large Language Models via Token-Adaptive Dynamic Basis Selection<div class="meta">KR Patent Application (10-2026-0072988) · <b>D. Y. Kang</b>, S. H. Han, J. H. Ko, Samsung Electronics · 2026</div></li>
+      <li>Memory-efficient hyperdimensional computing techniques for in-memory computing optimization<div class="meta">KR Patent Application (10-2024-0174593) · <b>D. Y. Kang</b>, Y. H. Oh, C. Hwang, K. E. Jeon, J. H. Ko, H. H. Lee · 2024</div></li>
     </ul>
   </section>
 
